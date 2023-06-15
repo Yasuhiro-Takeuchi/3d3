@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const house = await loadGLTF('./assets/models/house/usi.gltf');
     house.scene.scale.set(0.1, 0.1, 0.1);
-    house.scene.position.set(0, -0.5, 0.2);
+    house.scene.position.set(0, -1, 0.2);
     house.scene.rotation.set(0, 0, 0);
 
     const houseAncor = mindarThree.addAnchor(0);
