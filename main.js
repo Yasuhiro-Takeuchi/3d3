@@ -5,22 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const start = async() => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
-      imageTargetSrc: './assets/targets/open2.mind'
+      // imageTargetSrc: './assets/targets/open2.mind'
+      imageTargetSrc: './assets/targets/usi.mind'
     });
     const {renderer, scene, camera} = mindarThree;
 
     const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
     scene.add(light);
 
-    const usi = await loadGLTF('./assets/models/usi/usi.gltf');
-    
-    usi.scene.scale.set(2, 2, 2);
-    usi.scene.position.set(0, -1, 0.2);
-    usi.scene.rotation.set(0, 0, 0);
+    const house = await loadGLTF('./assets/models/house/usi.gltf');
+    house.scene.scale.set(3, 3, 3);
+    house.scene.position.set(0, -1, 0.2);
+    house.scene.rotation.set(0, 0, 0);
 
-    const usiAncor = mindarThree.addAnchor(0);
+    const houseAncor = mindarThree.addAnchor(0);
 
-    usiAncor.group.add(usi.scene);
+    houseAncor.group.add(house.scene);
 
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
