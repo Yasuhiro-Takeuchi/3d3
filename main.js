@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     house.scene.scale.set(0.1, 0.1, 0.1);
     house.scene.position.set(0, 0, 0);
-    house.scene.rotation.set(0, 0, 0);
+    house.scene.rotation.set(0, 0, 90);
 
     const houseAncor = mindarThree.addAnchor(0);
 
