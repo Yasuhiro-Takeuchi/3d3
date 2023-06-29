@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
     scene.add(light);
 
-    const house = await loadGLTF('./assets/models/house/usi.gltf');
+    const house = await loadGLTF('./assets/models/house/usi2.gltf');
 
     house.scene.scale.set(0.1, 0.1, 0.1);
     house.scene.position.set(0, 0, 0);
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       renderer.render(scene, camera);
     });
   }
-  //start();
+  // start();
   const startButton = document.createElement("button");
   startButton.textContent = "Start";
   startButton.addEventListener("click", start);
