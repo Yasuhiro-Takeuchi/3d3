@@ -19,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
     house.scene.scale.set(0.1, 0.1, 0.1);
     house.scene.position.set(0, 0, 0);
     house.scene.rotation.set(90, 0, 0);
-
     const houseAncor = mindarThree.addAnchor(0);
 
     houseAncor.group.add(house.scene);
@@ -35,3 +34,47 @@ document.addEventListener('DOMContentLoaded', () => {
   startButton.addEventListener("click", start);
   document.body.appendChild(startButton);
 });
+
+let mixer;
+let clock = new THREE.Clock();
+ 
+const gltfLoader = new GLTFLoader();
+gltfLoader.load('./data/usi2.gltf',function(data){
+    const gltf = data;
+    const obj = gltf.scene;
+    const animations = gltf.animations;
+ 
+    if(animations && animations.length) {
+ 
+        //Animation Mixerインスタンスを生成
+        mixer = new THREE.AnimationMixer(obj);
+ 
+        //全てのAnimation Clipに対して
+        for (let i = 0; i < animations.length; i++) {
+            let animation = animations[i];
+ 
+            //Animation Actionを生成
+            let action = mixer.clipAction(animation) ;
+ 
+            //ループ設定（1回のみ）
+            action.setLoop(THREE.LoopOnce);
+ 
+            //アニメーションの最後のフレームでアニメーションが終了
+            action.clampWhenFinished = true;
+ 
+            //アニメーションを再生
+            action.play();
+        }
+    }
+    scene.add(obj);
+});
+ 
+function render() {
+    requestAnimationFrame(render);
+    renderer.render(scene,camera);
+ 
+    //Animation Mixerを実行
+    if(mixer){
+        mixer.update(clock.getDelta());
+    }
+}
