@@ -1,80 +1,57 @@
-import {loadGLTF} from "./libs/loader.js";
+import { loadGLTF } from "./libs/loader.js";
 const THREE = window.MINDAR.IMAGE.THREE;
 
 document.addEventListener('DOMContentLoaded', () => {
-  const start = async() => {
+  const start = async () => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
-      // imageTargetSrc: './assets/targets/kusa.mind'
       imageTargetSrc: './assets/targets/open2.mind'
-      // imageTargetSrc: './assets/targets/usi.mind'
     });
-    const {renderer, scene, camera} = mindarThree;
+    const { renderer, scene, camera } = mindarThree;
 
-    const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
+    const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
     scene.add(light);
 
-    const house = await loadGLTF('./assets/models/house/usi2.gltf');
+    const usi = await loadGLTF('./assets/models/usi/usi.gltf');
 
-    house.scene.scale.set(0.1, 0.1, 0.1);
-    house.scene.position.set(0, 0, 0);
-    house.scene.rotation.set(90, 0, 0);
-    const houseAncor = mindarThree.addAnchor(0);
+    usi.scene.scale.set(1, 1, 1);
+    usi.scene.position.set(0, -1, 0.2);
+    usi.scene.rotation.set(0, 0, 0);
 
-    houseAncor.group.add(house.scene);
+    const usiAncor = mindarThree.addAnchor(0);
+
+    usiAncor.group.add(usi.scene);
+
+    //アニメーション
+    let mixer;
+    let clock = new THREE.Clock();
+    const actions = [];
+
+    mixer = new THREE.AnimationMixer(model);
+    // 複数のアクションすべてを再生
+    gltf.animations.forEach(animation => {
+      actions.push(mixer.clipAction(animation).play());
+    })
+
+    // animation
+    function animate() {
+      requestAnimationFrame(animate);
+      const delta = clock.getDelta();
+      mixer.update(delta);
+      controls.update();
+      renderer.render(scene, camera);
+    }
+
 
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
       renderer.render(scene, camera);
     });
   }
-  // start();
+  //start();
   const startButton = document.createElement("button");
   startButton.textContent = "Start";
   startButton.addEventListener("click", start);
   document.body.appendChild(startButton);
 });
 
-let mixer;
-let clock = new THREE.Clock();
- 
-const gltfLoader = new GLTFLoader();
-gltfLoader.load('./data/usi2.gltf',function(data){
-    const gltf = data;
-    const obj = gltf.scene;
-    const animations = gltf.animations;
- 
-    if(animations && animations.length) {
- 
-        //Animation Mixerインスタンスを生成
-        mixer = new THREE.AnimationMixer(obj);
- 
-        //全てのAnimation Clipに対して
-        for (let i = 0; i < animations.length; i++) {
-            let animation = animations[i];
- 
-            //Animation Actionを生成
-            let action = mixer.clipAction(animation) ;
- 
-            //ループ設定（1回のみ）
-            action.setLoop(THREE.LoopOnce);
- 
-            //アニメーションの最後のフレームでアニメーションが終了
-            action.clampWhenFinished = true;
- 
-            //アニメーションを再生
-            action.play();
-        }
-    }
-    scene.add(obj);
-});
- 
-function render() {
-    requestAnimationFrame(render);
-    renderer.render(scene,camera);
- 
-    //Animation Mixerを実行
-    if(mixer){
-        mixer.update(clock.getDelta());
-    }
-}
