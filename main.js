@@ -12,43 +12,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
     scene.add(light);
 
-    const usi = await loadGLTF('./assets/models/usi/usi.gltf');
+    const usi = await loadGLTF('./assets/models/house/usi4.gltf');
 
-    usi.scene.scale.set(1, 1, 1);
-    usi.scene.position.set(0, -1, 0.2);
-    usi.scene.rotation.set(0, 0, 0);
+    usi.scene.scale.set(0.1, 0.1, 0.1);
+    usi.scene.position.set(0, 0, 0);
+    usi.scene.rotation.set(90, 0, 0);
 
     const usiAncor = mindarThree.addAnchor(0);
 
     usiAncor.group.add(usi.scene);
 
-    //アニメーション
-    let mixer;
-    let clock = new THREE.Clock();
-    const actions = [];
+    //animation1
+    const mixer = new THREE.AnimationMixer(usi.scene);
+    const action = mixer.clipAction(usi.animations[0]);
+    action.play();
 
-    mixer = new THREE.AnimationMixer(model);
-    // 複数のアクションすべてを再生
-    gltf.animations.forEach(animation => {
-      actions.push(mixer.clipAction(animation).play());
-    })
-
-    // animation
-    function animate() {
-      requestAnimationFrame(animate);
-      const delta = clock.getDelta();
-      mixer.update(delta);
-      controls.update();
-      renderer.render(scene, camera);
-    }
-
+    const clock = new THREE.Clock();
 
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
+      //animation2
+      const delta = clock.getDelta();
+      // usi.scene.rotation.set(0, usi.scene.rotation.y + delta, 0);
+      mixer.update(delta);
       renderer.render(scene, camera);
     });
   }
-  //start();
+  // start();
   const startButton = document.createElement("button");
   startButton.textContent = "Start";
   startButton.addEventListener("click", start);
