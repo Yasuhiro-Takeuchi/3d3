@@ -12,15 +12,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const light = new THREE.HemisphereLight( 0xffffff, 0xbbbbff, 1 );
     scene.add(light);
 
-    const usi = await loadGLTF('./assets/models/usi/usi.gltf');
-    
+    const usi = await loadGLTF('./assets/models/house/usi.gltf');
+    const sakana = await loadGLTF('./assets/models/house/usi.gltf');
     usi.scene.scale.set(1, 1, 1);
     usi.scene.position.set(0, -1, 0.2);
     usi.scene.rotation.set(0, 0, 0);
 
+    sakana.scene.scale.set(1, 1, 1);
+    sakana.scene.position.set(0, -1, 0.2);
+    sakana.scene.rotation.set(0, 0, 0);
+
     const usiAncor = mindarThree.addAnchor(0);
+    const sakanaAncor = mindarThree.addAnchor(1);
 
     usiAncor.group.add(usi.scene);
+    sakanaAncor.group.add(sakana.scene);
 
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
@@ -34,4 +40,3 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(startButton);
 });
 
-aaa
