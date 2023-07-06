@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
   
 
     usi.scene.scale.set(0.1, 0.1, 0.1);
-    usi.scene.position.set(0, 0, 0);
-    usi.scene.rotation.set(90, 0, 0);
+    usi.scene.position.set(0.1, -0.2, -0.5);
+    usi.scene.rotation.set(0, 0, 0);
 
-    dog.scene.scale.set(0.1, 0.1, 0.1);
+    dog.scene.scale.set(0.1, 0.5, 0.5);
     dog.scene.position.set(0, 0, 0);
     dog.scene.rotation.set(90, 0, 0);
 
