@@ -5,30 +5,30 @@ document.addEventListener('DOMContentLoaded', () => {
   const start = async () => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
-      imageTargetSrc: './assets/targets/test.mind'
+      imageTargetSrc: './assets/targets/sakana.mind'
     });
     const { renderer, scene, camera } = mindarThree;
 
     const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
     scene.add(light);
 
-    const usi = await loadGLTF('./assets/models/house/usi4.gltf');
-    const dog = await loadGLTF('./assets/models/house/dog.gltf');
-  
+    const usi = await loadGLTF('./assets/models/house/tori.gltf');
+    const sakana = await loadGLTF('./assets/models/house/sakana.gltf');
+    
 
     usi.scene.scale.set(0.1, 0.1, 0.1);
-    usi.scene.position.set(0.1, -0.2, -0.5);
-    usi.scene.rotation.set(0, 0, 0);
+    usi.scene.position.set(0, 0.5, 0);
+    usi.scene.rotation.set(90, 0, 0);
 
-    dog.scene.scale.set(0.1, 0.5, 0.5);
-    dog.scene.position.set(0, 0, 0);
-    dog.scene.rotation.set(90, 0, 0);
+    sakana.scene.scale.set(0.1, 0.5, 0.5);
+    sakana.scene.position.set(0, 0, 0);
+    sakana.scene.rotation.set(0, 90, 0);
 
     const usiAncor = mindarThree.addAnchor(0);
-    const dogAncor = mindarThree.addAnchor(1);
+    const sakanaAncor = mindarThree.addAnchor(1);
 
     usiAncor.group.add(usi.scene);
-    dogAncor.group.add(dog.scene);
+    sakanaAncor.group.add(sakana.scene);
 
     //animation1
     const mixer = new THREE.AnimationMixer(usi.scene);
