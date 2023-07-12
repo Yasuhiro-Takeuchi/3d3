@@ -19,20 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const model4 = await loadGLTF('./assets/models/house/sakana2.gltf');
     
 
-    model0.scene.scale.set(0.1, 0.1, 0.1);
-    model0.scene.position.set(0, 0.5, 0);
-    model0.scene.rotation.set(90, 0, 0);
+    model0.scene.scale.set(0.5, 0.5, 0.5);
+    model0.scene.position.set(0, 0, 0);
+    model0.scene.rotation.set(100, 0, 0);
 
-    model1.scene.scale.set(0.1, 0.5, 0.5);
-    model1.scene.position.set(0, 0, 0);
-    model1.scene.rotation.set(0, 90, 0);
+    model1.scene.scale.set(0.5, 0.5, 0.5);
+    model1.scene.position.set(1, 1, 1);
+    model1.scene.rotation.set(10, 90, 0);
 
     model2.scene.scale.set(0.1, 0.1, 0.1);
-    model2.scene.position.set(0, 0.5, 0);
-    model2.scene.rotation.set(90, 0, 0);
+    model2.scene.position.set(1, 1, 1);
+    model2.scene.rotation.set(10, 0, 0);
 
-    model3.scene.scale.set(0.1, 0.5, 0.5);
-    model3.scene.position.set(0, 0, 0);
+    model3.scene.scale.set(0.1, 0.1, 0.1);
+    model3.scene.position.set(0, -20, -10);
     model3.scene.rotation.set(0, 90, 0);
 
     model4.scene.scale.set(0.1, 0.5, 0.5);
