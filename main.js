@@ -19,25 +19,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const model4 = await loadGLTF('./assets/models/house/sakana2.gltf');
     
 
-    model0.scene.scale.set(0.5, 0.5, 0.5);
-    model0.scene.position.set(0, 0, 0);
-    model0.scene.rotation.set(100, 0, 0);
+    model0.scene.scale.set(0.2, 0.2, 0.2);
+    model0.scene.position.set(0, 0, -1);
+    model0.scene.rotation.set(0, 0, 0);
 
-    model1.scene.scale.set(0.5, 0.5, 0.5);
-    model1.scene.position.set(1, 1, 1);
-    model1.scene.rotation.set(10, 90, 0);
+    model1.scene.scale.set(0.4, 0.4, 0.4);
+    model1.scene.position.set(0, 0, -1);
+    model1.scene.rotation.set(0, 0, 0);
 
-    model2.scene.scale.set(0.1, 0.1, 0.1);
-    model2.scene.position.set(1, 1, 1);
+    model2.scene.scale.set(0.5, 0.5, 0.5);
+    model2.scene.position.set(0, 0, 0);
     model2.scene.rotation.set(10, 0, 0);
 
     model3.scene.scale.set(0.1, 0.1, 0.1);
-    model3.scene.position.set(0, -20, -10);
-    model3.scene.rotation.set(0, 90, 0);
+    model3.scene.position.set(0, 2, 0);
+    model3.scene.rotation.set(0, 0, 0);
 
-    model4.scene.scale.set(0.1, 0.5, 0.5);
-    model4.scene.position.set(0, 0, 0);
-    model4.scene.rotation.set(0, 90, 0);
+    model4.scene.scale.set(0.3,0.3, 0.3);
+    model4.scene.position.set(0, 0, -1);
+    model4.scene.rotation.set(0, 0, 0);
 
     const model0Ancor = mindarThree.addAnchor(0);
     const model1Ancor = mindarThree.addAnchor(1);
