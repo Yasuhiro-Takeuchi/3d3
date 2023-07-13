@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const model4 = await loadGLTF('./assets/models/house/sakana2.gltf');
     
 
+
+    
     model0.scene.scale.set(0.2, 0.2, 0.2);
     model0.scene.position.set(0, 0, -1);
     model0.scene.rotation.set(0, 0, 0);
