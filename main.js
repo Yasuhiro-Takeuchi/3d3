@@ -29,9 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
     model1.scene.position.set(0, 0, -1);
     model1.scene.rotation.set(0, 0, 0);
 
-    model2.scene.scale.set(0.5, 0.5, 0.5);
+    model2.scene.scale.set(0.3, 0.3, 0.3);
     model2.scene.position.set(0, 0, 0);
-    model2.scene.rotation.set(10, 0, 0);
+    model2.scene.rotation.set(0, 0, 0);
 
     model3.scene.scale.set(0.1, 0.1, 0.1);
     model3.scene.position.set(0, 2, 0);
