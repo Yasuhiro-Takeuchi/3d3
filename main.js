@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.add(light);
 
     const model0 = await loadGLTF('./assets/models/house/sakana.gltf');
-    const model1 = await loadGLTF('./assets/models/house/usi.gltf');
+    const model1 = await loadGLTF('./assets/models/house/usi4.gltf');
     const model2 = await loadGLTF('./assets/models/house/hituzi.gltf');
     const model3 = await loadGLTF('./assets/models/house/tori.gltf');
     const model4 = await loadGLTF('./assets/models/house/sakana2.gltf');
@@ -21,25 +21,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     
-    model0.scene.scale.set(0.2, 0.2, 0.2);
+    model0.scene.scale.set(0.3, 0.3, 0.3);
     model0.scene.position.set(0, 0, -1);
     model0.scene.rotation.set(0, 0, 0);
 
     model1.scene.scale.set(0.4, 0.4, 0.4);
-    model1.scene.position.set(0, 0, -1);
-    model1.scene.rotation.set(0, 0, 0);
+    model1.scene.position.set(0, 1, -5);
+    model1.scene.rotation.set(0.1, 0, 0);
 
     model2.scene.scale.set(0.3, 0.3, 0.3);
-    model2.scene.position.set(0, 0, -1);
+    model2.scene.position.set(0, 0, -2);
     model2.scene.rotation.set(0, 0, 0);
 
     model3.scene.scale.set(0.1, 0.1, 0.1);
-    model3.scene.position.set(0, 2, 0);
+    model3.scene.position.set(0, 1.5, 0);
     model3.scene.rotation.set(0, 0, 0);
 
-    model4.scene.scale.set(0.3,0.3, 0.3);
-    model4.scene.position.set(0, 0, -1);
-    model4.scene.rotation.set(0, 0, 0);
+    model4.scene.scale.set(0.15,0.15, 0.15);
+    model4.scene.position.set(0, 0, 0);
+    model4.scene.rotation.set(90, 0, 0);
 
     const model0Ancor = mindarThree.addAnchor(0);
     const model1Ancor = mindarThree.addAnchor(1);
