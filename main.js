@@ -12,25 +12,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
     scene.add(light);
 
-    const model0 = await loadGLTF('./assets/models/house/sakana.gltf');
-    const model1 = await loadGLTF('./assets/models/house/usi41.gltf');
-    const model2 = await loadGLTF('./assets/models/house/hituzi.gltf');
+    // const model0 = await loadGLTF('./assets/models/house/sakana.gltf');
+    // const model1 = await loadGLTF('./assets/models/house/usi41.gltf');
+    // const model2 = await loadGLTF('./assets/models/house/hituzi.gltf');
+    const model0 = await loadGLTF('./assets/models/house/gomibako.gltf');//sakana
+    const model1 = await loadGLTF('./assets/models/house/dougu.gltf');//usi
+    const model2 = await loadGLTF('./assets/models/house/cardbox.gltf');//hituzi
     const model3 = await loadGLTF('./assets/models/house/tori.gltf');
     const model4 = await loadGLTF('./assets/models/house/sakana2.gltf');
     
 
 
     
-    model0.scene.scale.set(0.3, 0.3, 0.3);
-    model0.scene.position.set(0, 0, -1);
+    // model0.scene.scale.set(0.3, 0.3, 0.3);
+    // model0.scene.position.set(0, 0, -1);
+    // model0.scene.rotation.set(0, 0, 0);
+
+    // model1.scene.scale.set(0.4, 0.4, 0.4);
+    // model1.scene.position.set(0, 1, -5);
+    // model1.scene.rotation.set(0.1, 0, 0);
+
+    // model2.scene.scale.set(0.3, 0.3, 0.3);
+    // model2.scene.position.set(0, 0, -2);
+    // model2.scene.rotation.set(0, 0, 0);
+
+    model0.scene.scale.set(0.5, 0.5, 0.5);
+    model0.scene.position.set(0, 0, 0);
     model0.scene.rotation.set(0, 0, 0);
 
-    model1.scene.scale.set(0.4, 0.4, 0.4);
-    model1.scene.position.set(0, 1, -5);
-    model1.scene.rotation.set(0.1, 0, 0);
+    model1.scene.scale.set(0.5, 0.5, 0.5);
+    model1.scene.position.set(0, 0, 0);
+    model1.scene.rotation.set(0, 0, 0);
 
-    model2.scene.scale.set(0.3, 0.3, 0.3);
-    model2.scene.position.set(0, 0, -2);
+    model2.scene.scale.set(0.5, 0.5, 0.5);
+    model2.scene.position.set(0, 0, 0);
     model2.scene.rotation.set(0, 0, 0);
 
     model3.scene.scale.set(0.1, 0.1, 0.1);
