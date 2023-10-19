@@ -13,11 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.add(light);
 
     // const model0 = await loadGLTF('./assets/models/house/sakana.gltf');
-    // const model1 = await loadGLTF('./assets/models/house/usi41.gltf');
-    // const model2 = await loadGLTF('./assets/models/house/hituzi.gltf');
+    const model1 = await loadGLTF('./assets/models/house/usi41.gltf');
+    const model2 = await loadGLTF('./assets/models/house/hituzi.gltf');
     const model0 = await loadGLTF('./assets/models/house/gomibako.gltf');//sakana
-    const model1 = await loadGLTF('./assets/models/house/dougu.gltf');//usi
-    const model2 = await loadGLTF('./assets/models/house/cardbox.gltf');//hituzi
+    // const model1 = await loadGLTF('./assets/models/house/dougu.gltf');//usi
+    // const model2 = await loadGLTF('./assets/models/house/cardbox.gltf');//hituzi
     const model3 = await loadGLTF('./assets/models/house/tori.gltf');
     const model4 = await loadGLTF('./assets/models/house/sakana2.gltf');
     
